@@ -39,3 +39,8 @@ html、head、meta、title、body、img、div、ul、ol、li、br、input 都是
 - W3C 标准建议为 html 元素增加一个 lang 属性,作用是帮助语音合成工具确定要使用的发音,帮助翻译工具确定要使用的翻译规则
 - lang="en"告诉浏览器: 这个 HTML 文档的语言是英文,所有 Chrome 浏览器的有翻译提示
 - lang="zh"表示这个 HTML 文档的语言是中文
+- h元素有助于网站的SEO(Search Engine Optimization)优化,可以促进关键词排名
+
+### 观看进度
+
+- ```https://www.bilibili.com/video/BV16j411f7p5?p=18```
