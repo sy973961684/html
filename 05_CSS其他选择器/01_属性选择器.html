@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 属性选择器 [属性] */
+    [title] {
+      color: red;
+    }
+
+    [title="one div元素"] {
+      font-size: 25px;
+    }
+
+    /* title属性中包含one单词 */
+    [title*="one"] {
+      background-color: grey;
+    }
+
+    /* title属性中以one */
+    [title^="one"] {
+      background-color: indianred;
+    }
+
+    /* [attr|="val"] 恰好以val开头且后面紧跟着连字符-的元素 */
+    /* [attr~="val"] 单词val与其他单词之间必须用空格隔开 */
+    /* [attr$="val"] 以单词val结尾的元素 */
+  </style>
+</head>
+
+<body>
+  <div title="one div元素">我是div元素</div>
+  <p title="p元素">我是p元素</p>
+  <p title="p one">我是p元素</p>
+  <p>我也是p元素</p>
+  <span title="one span元素">我是span元素</span>
+</body>
+
+</html>

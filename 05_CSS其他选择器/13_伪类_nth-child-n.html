@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* n: 0,1,2,3,4... */
+    /* 2n: 2,4,6,8 偶数个 */
+    /* 2n: 替换为 even */
+    /* p元素下的所有子元素 */
+    /* p:nth-child(even) {
+      color: red;
+    } */
+
+    /* 2n+1: 替换成 odd */
+    /* p:nth-child(2n+1) {
+      color: red;
+    } */
+
+    /* 3n */
+    /* 3n+2 */
+    /* p:nth-child(3n) {
+      color: red;
+    } */
+
+    /* 负数: -n+3(前三个)*/
+    p:nth-child(-n+3) {
+      color: red;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div>
+    <p>文字内容1</p>
+    <p>文字内容2</p>
+    <p>文字内容3</p>
+    <p>文字内容4</p>
+    <p>文字内容5</p>
+    <p>文字内容6</p>
+    <p>文字内容7</p>
+    <p>文字内容8</p>
+  </div>
+</body>
+
+</html>

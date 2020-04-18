@@ -39,8 +39,37 @@ html、head、meta、title、body、img、div、ul、ol、li、br、input 都是
 - W3C 标准建议为 html 元素增加一个 lang 属性,作用是帮助语音合成工具确定要使用的发音,帮助翻译工具确定要使用的翻译规则
 - lang="en"告诉浏览器: 这个 HTML 文档的语言是英文,所有 Chrome 浏览器的有翻译提示
 - lang="zh"表示这个 HTML 文档的语言是中文
-- h元素有助于网站的SEO(Search Engine Optimization)优化,可以促进关键词排名
+- h 元素有助于网站的 SEO(Search Engine Optimization)优化,可以促进关键词排名
+- div 元素一般作为其他元素的父容器,把其他元素包住,代表一个整体
+- div 元素把网页分割为多个独立的部分
+- 尝试给网站添加这个样式试试`div { outline: 2px solid red !important}`
+- 一般情况下,英文字体只适用于英文,中文字体同时适用于英文和中文
+- 所以,如果希望中英文分别使用不同的字体,应该先将英文字体写在前面,中文字体写在后面
+- line-height 用于设置文本的最小高度
+- 行高可以先简单的理解为一行文字所占据的高度
+- 行高的严格定义: 两行文字基线(baseline)之间的间距
+- 基线: 与小写字母 x 最底部对齐的线
+- height 是指元素整体的高度,line-height 元素中每一行文字所占据的高度
+- font
+- :nth-last-child(1) 代表倒数第 1 个子元素
+- :nth-last-child(-n+2) 代表最后 2 个子元素
+- :first-child = nth-child(1)
+- :last-child = nth-last-child(1)
+- :first-of-type = nth-of-type(1)
+- :last-of-type = nth-last-of-type(1)
+- :only-child 是父元素中唯一的子元素
+- :only-of-type 是父元素中唯一的这种类型的子元素
+- :root 根元素 就是 HTML 元素
+- :not()的格式是:not(x)
+- :x 是一个简单的选择器
+- :not(x) 表示除 x 以外的元素
+- 元素选择器 通用选择器 属性选择器 类选择器 id 选择器 伪类(除否定伪类)
+- 常用的伪元素
+- :first-line ::first-line
+- :first-letter ::first-letter
+- :before ::before
+- :after ::after
 
-### 观看进度
+### CSS 属性  选择器
 
-- ```https://www.bilibili.com/video/BV16j411f7p5?p=18```
+- `https://www.bilibili.com/video/BV16j411f7p5?p=40`
