@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="http://www.baidu.com">
+    <input type="text" name="username">
+    <!-- 方式1. input实现 -->
+    <div>
+      <!-- 普通按钮 -->
+      <input type="button" value="按钮">
+      <!-- 重置按钮 -->
+      <input type="reset" value="重置">
+      <!-- 表单提交 -->
+      <input type="submit">
+    </div>
+
+    <!-- 方式2. button实现 -->
+    <!-- 注意点: button type属性默认值是reset -->
+    <div>
+      <!-- 普通按钮 -->
+      <Button type="button">按钮</Button>
+      <!-- 重置按钮 -->
+      <Button type="reset">重置</Button>
+      <!-- 表单提交(submit是默认值)-->
+      <button>提交</button>
+    </div>
+  </form>
+
+  <!-- 模拟百度 -->
+  <strong>模拟百度搜索</strong>
+  <form action="http://www.baidu.com/s">
+    <input type="text" placeholder="请输入搜索的关键字" name="wd">
+    <input type="submit" value="百度一下">
+  </form>
+
+</body>
+
+</html>

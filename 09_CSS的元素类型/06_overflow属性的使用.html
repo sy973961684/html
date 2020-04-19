@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      background-color: red;
+      width: 200px;
+      height: 200px;
+
+      /* visible: 超出依然可见,默认值 */
+      /* overflow: visible; */
+
+      /* hidden: 超出部分,隐藏起来 */
+      /* overflow: hidden; */
+
+      /* scroll: 超出部分隐藏,但是可以通过滚动查看 */
+      /* overflow: scroll; */
+
+      /* auto: 有超出部分,可以滚动查看,没有就正常显示 */
+      /* overflow: auto; */
+
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img src="../img/test_01.jpg" alt="">
+  </div>
+</body>
+
+</html>

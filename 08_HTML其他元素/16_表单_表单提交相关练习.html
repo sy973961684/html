@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    fieldset {
+      width: 400px;
+    }
+
+    input {
+      outline: none;
+    }
+
+    input:focus {
+      border-color: skyblue;
+      border-style: solid;
+    }
+
+    input,
+    textarea {
+      resize: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <form action="http://www.baidu.com" method="POST" enctype="multipart/form-data">
+    <fieldset>
+      <legend>必填信息</legend>
+      <!-- 1.手机输入框 -->
+      <div>
+        <span>手机:</span>
+        <input type="text" name="phone" maxlength="11" placeholder="请输入手机号">
+      </div>
+
+      <!-- 2.密码输入框 -->
+      <div>
+        <span>密码:</span>
+        <input type="password" id="password" name="password" placeholder="请输入密码">
+      </div>
+
+      <!-- 3.验证码 -->
+      <div>
+        <span>验证码:</span>
+        <input type="text" placeholder="请输入验证码" name="code">
+        <!-- 3.1 button实现方式一 -->
+        <!-- <button>获取验证码</button> -->
+
+        <!-- 3.2 button实现方式二 -->
+        <input type="button" value="获取验证码" disabled>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>选填信息</legend>
+      <!-- 照片: 选择文件 -->
+      <div>
+        <span>照片:</span>
+        <input type="file" name="photo">
+      </div>
+
+      <!-- 性别 -->
+      <div>
+        <span>性别:</span>
+        <label for="male">男</label>
+        <input type="radio" id="male" name="sex" value="male">
+        <label for="female">女</label>
+        <input type="radio" id="female" name="sex" value="female">
+      </div>
+
+      <!-- 兴趣 -->
+      <span>兴趣:</span>
+      足球<input type="checkbox" name="hobbies" value="football">
+      篮球<input type="checkbox" name="hobbies" value="basketball">
+      唱歌<input type="checkbox" name="hobbies" value="sing">
+
+      <!-- 学历 -->
+      <div>
+        <span>学历:</span>
+        <select name="education" id="" size="2" multiple>
+          <!-- value提交到后端的值 -->
+          <option value="0">博士</option>
+          <option value="1">硕士</option>
+          <option value="2">本科</option>
+          <option value="3" selected>大专</option>
+        </select>
+      </div>
+
+      <!-- 简介 -->
+      <div>
+        <span>简介:</span>
+        <textarea name="intro" cols="30" rows="5"></textarea>
+      </div>
+    </fieldset>
+    <!-- 重置 注册 -->
+    <!-- 
+    前提:
+      1. type必须是reset类型(value可以不写)
+      2. 所有的内容都必须在同一个表单中(form)
+    -->
+    <button type="reset">重置</button>
+    <button type="submit">提交</button>
+  </form>
+</body>
+
+</html>

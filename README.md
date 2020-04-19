@@ -33,7 +33,7 @@ html、head、meta、title、body、img、div、ul、ol、li、br、input 都是
 - 有一些属是公共的,每一个元素都可以设置,比如 class、id、title 属性
 - 有写属性是元素特有的,不是每一个元素都可以设置,比如 meta 元素的 charset 属性、img 元素的 alt 属性等
 
-### 1.1 html 元素
+## 1.1 html 元素
 
 - html 元素是 HTML 文档的根元素,一个文档中只能有一个,其他所有元素都是它的后代元素
 - W3C 标准建议为 html 元素增加一个 lang 属性,作用是帮助语音合成工具确定要使用的发音,帮助翻译工具确定要使用的翻译规则
@@ -65,11 +65,284 @@ html、head、meta、title、body、img、div、ul、ol、li、br、input 都是
 - :not(x) 表示除 x 以外的元素
 - 元素选择器 通用选择器 属性选择器 类选择器 id 选择器 伪类(除否定伪类)
 - 常用的伪元素
-- :first-line ::first-line
+- :first-line ::first-line
 - :first-letter ::first-letter
 - :before ::before
 - :after ::after
 
-### CSS 属性  选择器
+## day03 内容概述
 
-- `https://www.bilibili.com/video/BV16j411f7p5?p=40`
+## 一. 伪类和伪元素
+
+### 1.1 伪类
+
+- target:目标转换
+- 元素状态伪类: disabled/enable/checked(input)
+
+  - 动态伪类:
+
+    - link
+    - visited:a
+    - focus:a 和 input
+    - hover 其他元素
+    - active 其他元素
+
+  - 结构伪类
+
+    - nth-child
+    - 数字
+    - n -> 2n -> -n+5
+    - p:nth-child(3)
+    - nth-last-child
+    - 从后往前数
+    - nth-of-type
+    - 相同类型
+    - 如果类型不同,忽略
+    - nth-last-of-type
+    - 从后向前数
+    - first-child
+    - last-child
+    - first-of-type
+    - last-of-type
+    - only-child
+    - empty
+    - root
+
+  - 否定伪类
+
+    - 特殊场景下用否定伪类
+    - class 不香吗?
+
+### 1.2 伪元素
+
+- first-line
+- first-letter
+- before
+- after
+- 建议:使用两个冒号
+
+### 1.3 Emmet 语法
+
+- `html5和!`
+- `>和+`
+- `*和^和()`
+- `属性id/class/普通`
+- `内容{}`
+- `$`
+- `隐式标签 div ul>.item table>.row>.content`
+- `css emmet语法`
+
+## day04 内容概述
+
+## 一. CSS 特性
+
+### 1.1 继承
+
+- CSS 中有些属性是可继承的,何为属性的继承?
+
+  - 一个元素中如果没有设置某属性的值,就会跟随父元素的值
+  - 比如 color font-size 等属性都是可以继承的
+  - 哪些属性可以继承,多去查官网
+  - 不能继承的属性,一般可以使用 inherit 值来强制继承
+  - 浏览器的开发者工具也会标识出哪些样式是继承过来的(inherited for div)
+  - 注意点
+    - CSS 属性值继承的是计算值,并不是当初编写属性时的指定值(字面值)
+
+- CSS 允许多个相同名字的 CSS 属性层叠在同一个元素上
+
+  - 层叠后的结果是: 只有一个 CSS 属性会生效
+  - 浏览器的开发者工具非常清晰地显示了哪个 CSS 会生效\
+  - 哪个 CSS 属性会生效,取决于 CSS 属性所处环境的优先级高低
+  - 按照经验,为了方便比较 CSS 属性的优先级,可以给 CSS 属性所处的环境定义一个权重
+    - `!important:1000`
+    - `内联样式:1000`
+    - `id选择器:100`
+    - `类选择器、属性选择器、伪类:10`
+    - `元素选择器、伪元素:1`
+    - `通配符:0`
+  - 比较优先级的严谨方法
+    - 从权重最大的开始比较每一种权值的数量多少,数量多的则优先级高,即可比较结束
+    - 如果数量相同,比较下一个较小的权值,以此类推
+    - 如果所有的权值比较完毕后,发现数量都相同,就采取"就近原则"
+
+- CSS 属性使用经验
+  - 为何有时候编写的 CSS 属性不好使,有可能是因为:
+    - 选择器的优先级太低
+    - 选择器没选中对应的元素
+    - CSS 属性的使用形式不对
+    - 元素不支持此 CSS 属性,比如 span 默认是不支持 width 和 height 的
+    - 浏览器不支持此 CSS 属性,比如旧版本的浏览器不支持 CSS3 的某些特性
+    - 被同类型的 CSS 属性覆盖,比如 font 覆盖 font-size
+  - 建议
+    - 充分利用浏览器的开发者工具进行调试(增加、修改样式)、查错
+
+## 二. HTML-列表元素
+
+### 1.1 列表
+
+- 有序列表
+  - ol(ordered list),直接子元素只能是 li
+  - li(list item),列表中的每一项
+- 无序列表
+  - ul(unordered list),直接子元素只能是 li
+  - li(list item),列表中的每一项
+- 定义列表
+  - dl( definition list),定义列表,直接子元素只能是 dt、dd
+  - dt( definition term),列表中每一项的项目名
+  - dd( definition description),列表中每一项的具体描述,是对 dt 的描述、解释、补充
+- dt、dd 常见的组合
+  - 事务的名称、事务的描述
+  - 问题、答案
+  - 类别名、归属于这类的各种事务
+- 列表相关的常见 CSS 属性有 4 个
+  - list-style-type: 设置 li 元素前面标记的样式(none|disc|circle|square|decimal|lower-roman|upper-roman|lower-alpha|upper-alpha)
+  - list-style-image: 设置某张图片为 li 元素前面的标记,会覆盖 list-style-type 的设置
+  - list-style-position: 设置 li 元素前面标记的位置,可以取 outsize、inside2 个值
+  - list-style: 是 list-style-type、list-style-image、list-style-position 的缩写属性
+  - list-style: outside url("images/dot.png")
+  - 他们都可以继承,所以设置给 ol、ul 元素,默认也会应用到 li 元素
+  - 一般最常用的还是设置为 none,去掉 li 元素前面的默认标记 list-style:none;
+
+## 三. HTML-表格元素
+
+- table 表格
+  - border: 边框的高度
+  - cellpadding: 单元格内部的间距
+  - cellspacing: 单元格之间的间距
+  - width: 表格的宽度
+  - align: 表格的水平对齐方式 left|center|right
+- tr(table row): 表格中的行
+  - valign: 单元格的垂直对齐方式 top|middle|bottom|baseline
+  - align: 单元格的水平对齐方式 left|center|right
+- td(table description): 行中的单元格
+  - valign: 单元格的垂直对齐方式 top|middle|bottom|baseline
+  - align: 单元格的水平对齐方式 left|center|right
+  - width: 单元格的宽度
+  - height: 单元格的高度
+  - rowspan: 单元格可横跨的行数
+  - colspan: 单元格可横跨的列数
+- tbody 表格的主体
+- caption: 表格的标题
+- thead: 表格的头部
+- tfoot: 表格的页脚
+- th: 表格的表头单元格
+
+## 单词
+
+- inherited: 继承
+- vertical: 垂直的
+- horizontal: 水平的
+
+## day05 内容概述
+
+## 一.表单元素
+
+- form 表单
+  - 一般情况下,其他表单相关元素都是它的后代元素
+- input
+
+  - 单行文本输入框、单选框、复选框、按钮等元素
+  - type: input 的类型
+  - text: 文本输入框(明文输入)
+  - password: 文本输入框(密文输入)
+  - radio: 单选框
+  - checkbox: 复选框
+  - button: 按钮
+  - reset: 重置
+  - submit: 提交表单数据给服务器
+  - file: 文件上传
+  - 常用的属性
+    - maxlength: 允许输入的最大字数
+    - placeholder: 占位字符
+    - readonly: 只读
+    - disabled: 禁用
+    - checked: 默认被选中,只有当 type 为 radio 和 checkbox 时可用
+    - autofocus: 当页面加载时,自动聚焦
+    - name: 名字,在提交数据给服务器时,用于区分数据类型
+    - value: 取值,发送给服务器
+    - form: 设置所属的 from 元素(填写 form 元素的 id),一旦设置了此属性,input 元素即使不在 from 元素内部,它的数据也可以提交给服务器
+  - 布尔属性(boolean attributes)
+    - 布尔属性可以没有属性值,写上属性名就代表使用这个属性
+    - 常见的不二属性有 disabled checked readonly multiple autofocus selected
+    - 如果要给布尔属性设值,值就是属性名本身
+
+- textarea
+  - 多行文本框
+- select、option
+  - 下拉选择框
+- button
+  - 按钮
+- label
+  - 表单元素的话题
+- fieldset
+  - 表单元素组
+- legend
+
+  - fieldset 的标题
+
+- 表单提交
+
+  - 1 传统方式
+    - 将所有的 input 包裹到一个 form 中
+    - form 设置 action(服务器的地址)
+    - input/button 类型是 submit
+    - 点击 submit,自动将所有的数据提交给服务器
+    - 弊端 1: 会进行页面的跳转,意味着服务器必须将一个页面写好,并且返回给前端,前段直接展示这个页面
+    - 服务端提前将页面写好: 服务端渲染
+    - 弊端 2: 不方便进行表单数据的验证
+  - 2 前后端分离
+    - 通过 JavaScript 获取到所有的表单内容
+    - 通过正则表达式进行表单的验证
+    - 发送 ajax 请求,将数据发送给服务器
+    - 验证成功后,服务器会返回结果,需要前端解析这个结果,并且决定显示什么内容(前端渲染和前端路由)
+  - 3 get
+    - 在请求 URL 后面以?的形式跟上发给服务器的参数,多个参数之间用&隔开
+    - 由于浏览器和服务器对 URL 长度有限制,因此在 URL 后面附带的参数是有限制的,通常不超过 1KB
+  - 4 post
+    - 发送给服务器的参数全部放在请求体中
+    - 理论上,post 传递的数据量没有限制(具体还得看服务器的处理能力)
+  - 5 enctype
+    - 固定了向服务器发送表单数据之前如何对数据进行编码
+    - 取值有 3 种
+      - application/x-www-form-urlencoded: 默认的编码方式
+      - multipart/form-data: 文件上传时必须为这个值,并且 method 必须是 post
+      - text/plain: 普通文本传输
+  - 6 accept-charset
+    - 规定表单提交时使用的字符编码(默认值 UNKNOWN,和文档相同的编码)
+
+## 二.元素类型
+
+- 元素类型
+
+  - 根据元素的显示类型(能不能在同一行显示),HTML 元素可以主要分为 2 大类
+    - 1 块级元素(block-level elements)
+      - 独占父元素一行
+      - 比如 div p pre h1~h6 ul ol li dl dt dd table form article aside footer header hgroup main nav section blockquote hr 等
+    - 2 行内级元素(inline-level elements)
+      - 多个行内级元素可以在父元素的同一行显示
+      - 比如 a img span strong code iframe label input button canvas embed object video audio 等
+  - 根据元素的内容(浏览器是否会替换掉元素)类型,HTML 元素主要可以分为 2 大类
+    - 1 替换元素(replaced elements)
+      - 元素本身没有实际内容,浏览器根据元素的类型和属性,来决定元素的具体显示内容
+      - 比如 img input iframe video embed canvas audio object 等
+    - 2 非替换元素(non-replaced elements)
+      - 和替换元素相反,元素本身是有实际内容的,浏览器会直接将其内容显示出来,而不需要根据元素的类型和属性来判断到底显示什么内容
+      - 比如 div p pre h1~h6 ul ol li dl dt dd table form article aside footer header hgroup main nav section blockquote hr a strong span code label 等
+
+- display 属性
+  - CSS 中有个 display 属性,能修改元素的显示类型,有 4 个常用值
+    - block: 让元素显示为块级元素
+    - inline: 让元素显示为行内级元素
+    - none: 隐藏元素
+    - inline-block: 让元素同时具备行内级、块级元素的特征,对外来说,它是一个行内级元素,对内来说,它是一个块级元素
+    - table: `<table>`,一个 block-level 表格
+    - inline-table: `<table>`,一个 inline-table 表格
+    - table-row: `<tr>`
+    - table-row-group: `<tbody>`
+    - table-header-group: `<thead>`
+    - table-footer-group: `<tfoot>`
+    - table-cell: `<td> <th>`,一个单元格
+    - table-caption: `<caption>`,表格的标题
+    - list-item: `<li>`
+
+## 三.盒子模型
