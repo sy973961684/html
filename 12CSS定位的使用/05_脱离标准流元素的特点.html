@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      background-color: red;
+    }
+
+    a {
+      /* position: fixed; */
+      right: 20px;
+      bottom: 20px;
+    }
+
+    strong {
+      /* position:fixed 脱离标准流 */
+      /* 1.可以随意设置宽高 */
+      /* 2.宽高默认由内容决定 */
+      /* 3.不再受标准流的约束 */
+      /* 4.不再给父元素汇报宽高数据 */
+      position: fixed;
+      background-color: purple;
+      width: 100px;
+      height: 50px;
+
+      left: 30px;
+      bottom: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <span>span元素</span>
+  <strong>strong元素</strong>
+  <img src="../img/test_01.jpg" alt="">
+  <div>div元素</div>
+  <a href="#">a元素</a>
+  <i>i元素</i>
+</body>
+
+</html>
