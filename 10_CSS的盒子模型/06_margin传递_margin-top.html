@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box1 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    .box2 {
+      width: 200px;
+      height: 200px;
+      background-color: purple;
+      /* padding-top: 5px; */
+      /* border: 1px solid ; */
+      overflow: hidden;
+    }
+
+    .inner {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      /* margin左右不会传递 */
+      /* margin-left: 20px; */
+
+      /* margin-top传递 */
+      /* 如果块级元素的顶部线和父元素的顶部线重叠,那么这个块级元素的margin-top值会传递给父元素 */
+      margin-top: 20px;
+
+      /* 如何防止出现传递问题 */
+      /* 1.给父元素设置padding-top|padding-bottom */
+      /* 2.给父元素设置border */
+      /* 3.触发BFC:设置overflow为auto/hidden */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1"></div>
+  <div class="box2">
+    <div class="inner"></div>
+  </div>
+</body>
+
+</html>

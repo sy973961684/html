@@ -346,3 +346,118 @@ html、head、meta、title、body、img、div、ul、ol、li、br、input 都是
     - list-item: `<li>`
 
 ## 三.盒子模型
+
+- 触发 BFC
+  - BFC: block format context
+  - 结界
+- 如何触发 BFC
+  - 浮动可以触发
+  - 设置元素的 overflow 为非 visible
+- 建议
+  - margin 一般是用来设置兄弟之间的间距
+  - padding 一般是用来设置父子元素之间的间距
+- 上下 margin 折叠
+  - 垂直方向上相邻的 2 个 margin(margin-top margin-bottom)有可能会合并为 1 个 margin,这种现象叫做 collapse(折叠)
+  - 水平方向 margin 不会折叠
+  - 折叠后最终值的计算规则:取比较大的值
+- 如何防止 margin collapse
+  - 只设置其中一个元素的 margin
+- 边框先关的属性
+  - 边框宽度
+    - border-top-width
+    - border-right-width
+    - border-bottom-width
+    - border-left-width
+  - 边框颜色
+  - 边框样式
+- 行内非替换元素的注意点
+  - 以下属性对行内非替换元素不起作用
+    - width height margin-top margin-bottom
+  - 以下属性对行内非替换元素的效果比较特殊
+    - padding-top padding-bottom 上下方向的 border
+- outline
+  - 表示元素的外轮廊,不占用空间
+  - outline-width
+  - outline-style 和 border 的样式是一样的,比如 solid、dotted 等
+  - outline-color
+- box-shadow
+
+  - 设置一个或多个阴影
+  - 每个阴影用`<shadow>`表示
+  - 每个阴影之间用逗号隔开,从前到后叠加
+  - `<shadow> = inset? && <length>{2,4} && <color>?`
+  - 第一个`<length>`表示水平方向的偏移,正数往右偏移
+  - 第二个`<length>`表示垂直方向的偏移,正数往下偏移
+  - 第三个`<length>`表示模糊半径(blur radius)
+  - 第四个`<length>`表示延伸距离
+  - `<color>`表示阴影的颜色,如果没有设置,就跟随 color 属性的颜色
+  - inset: 外框阴影变成内框阴影
+
+- css Sprite
+  - 是一种 CSS 图像合成技术,将各种小图片合并到一张图片上,然后利用 CSS 的背景定位来显示对应的图片部分
+  - 减少网页的 http 请求数量,加快网页的响应速度,减轻服务器压力
+  - 解决了图片命名的困扰,只需要针对一张集合的图片命名
+
+## day06 内容概述
+
+## 一.cursor
+
+- CSS 属性
+  - cursor
+    - cursor 可以设置鼠标指针(光标)在元素上面时的显示样式
+  - 常见的值
+    - auto: 浏览器根据上下文决定指针的显示样式,比如根据文本和非文本切换指针样式
+    - default: 有操作系统决定,一般就是一个小箭头
+    - pointer: 小手
+    - text: 一条竖线
+
+## 二.定位
+
+- position
+  - 利用 position 可以对元素进行定位,常用取值有 4 个
+    - static: 静态定位,默认值,元素按 normal flow 布局
+      - left right top bottom 没有任何作用
+    - relative: 相对定位,相对自己原来的位置
+      - 元素按照 normal flow 布局
+    - absolute: 绝对定位,相对属性是非 static 的父元素进行定位
+      - 定位参照对象是最邻近的定位祖先元素
+    - fixed: 固定定位,相对浏览器的视口
+      - 元素脱离 normal flow
+
+## 三.浮动
+
+- 子绝父相
+
+  - 在绝大多数情况下,子元素的绝对定位都是相对于父元素进行定位
+  - 如果希望子元素相对于父元素进行定位,又不希望父元素脱标,常用的解决方案是:
+    - 父元素设置 position: relative(让父元素称为定位元素,而且父元素不脱离标准流)
+    - 子元素设置 position: absolute
+
+- 绝对定位技巧
+
+  - 绝对定位元素(absolutely positioned element)
+  - position 值为 absolute 或者 fixed 的元素
+  - 对于绝对定位的元素来说
+  - 定位参照对象的宽度= left+right + margin-left + margin-right + 绝对定位元素的实际占用宽度
+  - 定位参照对象的高度= top+bottom + margin-top + margin-bottom + 绝对定位元素的实际占用高度
+  - 如果希望绝对定位元素的宽度和定位参照对象一样,可以给绝对定位元素设置以下属性
+    - left:0 right:0 top:0 bottom:0 margin:0
+  - 如果希望绝对定位元素在定位参照对象中居中显示,可以给绝对定位元素设置以下属性
+    - left:0 right:0 top:0 bottom:0 margin:auto
+
+- 定位方案
+
+  - normal flow
+  - absolute positioning: 绝对定位
+  - float: 浮动
+
+- 浮动的规则
+  - 元素一旦浮动后,会脱离标准流,朝着向左或向右方向移动,直到自己的边界紧贴着包含块(一般是父元素)或其他浮动元素的边界为止
+  - 浮动元素不能与行内级内容层叠,行内级内容将会被浮动元素推出
+    - 比如行内级元素、inline-block、块级元素的文字内容
+  - 行内级元素、inline-block 元素浮动后,其顶部将与所在行的顶部对齐
+  - 如果元素是向左(右)浮动,浮动元素的左右边界不能超出包含块的左右边界
+  - 浮动元素之间不能层叠
+    - 如果一个元素浮动,另一个浮动元素已经在那个位置了,后浮动的元素将紧贴着前一个浮动元素(左浮找左浮,右浮找右浮)
+    - 如果水平方向剩余的空间不够显示浮动元素,浮动元素将向下移动,直到有足够的空间为止
+  - 浮动的元素的顶端不能超过包含块的顶端,也不能超过之前所有浮动元素的顶端

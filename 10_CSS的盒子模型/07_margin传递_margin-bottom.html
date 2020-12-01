@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box1 {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    .box2 {
+      width: 200px;
+      /* height: 100px; */
+      background-color: purple;
+    }
+
+    .inner {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      /* margin左右不会传递 */
+      /* margin-left: 20px; */
+
+      /*margin-bottom传递 */
+      /* 如果块级元素的底部线和父元素的底部线重叠,并且父元素的高度是auto,那么这个块级元素的margin-bottom值会传递给父元素 */
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box2">
+    <div class="inner"></div>
+  </div>
+  <div class="box1"></div>
+
+</body>
+
+</html>

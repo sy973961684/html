@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    span {
+      display: inline-block;
+      background-color: #f0f;
+      /* padding的左右 */
+      padding: 0 20px;
+
+      /* 行内非替换元素的效果比较特殊 */
+      /* padding|border top bottom */
+      /* padding的上下:上下会多出区域,但是这个区域不占据空间 */
+      /* padding-bottom: 10px; */
+
+      border-left: 10px solid #000;
+      border-bottom: 10px solid purple;
+    }
+  </style>
+</head>
+
+<body>
+  <span>span1</span>
+  <span>span2</span>
+  <div>div1</div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box1 {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+
+    strong {
+      position: relative;
+      background-color: orange;
+      z-index: 9;
+    }
+
+    span {
+      position: relative;
+      left: -100px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">
+    <div class="inner"></div>
+  </div>
+
+  <strong>strong元素</strong>
+  <span>哈哈哈哈</span>
+  <div class="box2"></div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 1000px;
+      height: 400px;
+      background-color: red;
+      background-image: url("../img/jj.jpg");
+      background-repeat: no-repeat;
+      /* cover: 对背景图片进行拉伸,让背景图片覆盖整个元素 */
+      /* background-size: cover; */
+
+      /* contain: 对背景图片进行拉伸,拉伸到一个方向的宽度(高度),不再进行拉伸,保持图片的宽高比 */
+      /* background-size: contain; */
+
+      /* 百分比或具体的大小 */
+      background-size: 50% 80%;
+
+      background-position: center top;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+</body>
+
+</html>
